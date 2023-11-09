@@ -1,0 +1,50 @@
+
+var ftGUID_5734504="5699A48D7EA6F1";
+var ftConfID_5734504="0";
+var ftParams_5734504="ftOBA=1&ft_domain=blog.gtwang.org&ft_ifb=1&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fblog.gtwang.org%2F&us_privacy=${US_PRIVACY}&cachebuster=467372.75421825843&ft_dv=%5B%25ft_dv%25%5D";
+var ftKeyword_5734504="";
+var ftCustom_5734504="";
+var ftSection_5734504="";
+var ftSegment_5734504="afr5";
+var ftSegmentList_5734504=[{s:'afr5'}];
+var ftRuleMatch_5734504="0";
+var ftTimestamp_5734504="1699494292";
+var ftGeoC2_5734504="tw";
+var ftGeoState_5734504="txg";
+var ftGeoCity_5734504="situn district";
+var ftISP_5734504="cht.com.twchunghwa telecom data communication business group";
+var ftSpeed_5734504="broadband";
+var ftConnType_5734504="wifi";
+var ftDMA_5734504="-1";
+var ftLong_5734504="120.64";
+var ftLat_5734504="24.17";
+var ftPostal_5734504="407 01";
+var ftTimeZone_5734504="+800";
+var ftMobileCarrier_5734504="";
+var ftImp5734504 = {};
+ftImp5734504.privacy = "x";
+ftImp5734504.guidAge = "92";
+ftImp5734504.impID = "98F7E1B0-F7C4-0479-1E23-0BBF8058B8AD";
+ftImp5734504.duid = "FT:5699A48D7EA6F1";
+
+ftImp5734504.ft_tpplid = "";
+ftImp5734504.ft_c = {};
+ftImp5734504.gdpr = "";
+ftImp5734504.gdpr_consent = "";
+ftImp5734504.gdpr_pd = "";
+ftImp5734504.oob_consent = "";
+ftImp5734504.gdprStoredConsent = "";
+ftImp5734504.us_privacy = "!!US_PRIVACY!";
+ftImp5734504.gpc = "";
+
+ftImp5734504.jsAppend = "1";
+(function(){
+    var tag = document.getElementById('ft_servedby_5734504') || (function(s){
+    	return s[s.length-1];
+    }(document.getElementsByTagName('script'))),
+           js = document.createElement('script');
+    js.src =
+"https://cdn.flashtalking.com/xre/573/5734504/4509092/js/j-5734504-4509092.js";
+    js.id = "ftscript_m5734504";
+    tag.parentNode.insertBefore(js, tag);
+}());

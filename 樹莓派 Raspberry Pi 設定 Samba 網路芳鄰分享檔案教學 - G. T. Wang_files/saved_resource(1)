@@ -1,0 +1,50 @@
+
+var ftGUID_5734507="5699A48D7EA6F1";
+var ftConfID_5734507="0";
+var ftParams_5734507="ftOBA=1&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fgoogleads.g.doubleclick.net%2Fpagead%2Fhtml%2Fr20231106%2Fr20110914%2Fzrt_lookup.html%3Ffsb%3D1%23RS-1-%26adk%3D1812271801%26client%3Dca-pub-7794009487786811%26fa%3D1%26ifi%3D9%26uci%3Da!9%26btvi%3D4%26xpc%3DjLxOVlR297%26p%3Dhttps%253A%2F%2Fblog.gtwang.org&us_privacy=${US_PRIVACY}&cachebuster=687065.5391472982&ft_dv=%5B%25ft_dv%25%5D";
+var ftKeyword_5734507="";
+var ftCustom_5734507="";
+var ftSection_5734507="";
+var ftSegment_5734507="afr5";
+var ftSegmentList_5734507=[{s:'afr5'}];
+var ftRuleMatch_5734507="0";
+var ftTimestamp_5734507="1699494303";
+var ftGeoC2_5734507="tw";
+var ftGeoState_5734507="txg";
+var ftGeoCity_5734507="situn district";
+var ftISP_5734507="cht.com.twchunghwa telecom data communication business group";
+var ftSpeed_5734507="broadband";
+var ftConnType_5734507="wifi";
+var ftDMA_5734507="-1";
+var ftLong_5734507="120.64";
+var ftLat_5734507="24.17";
+var ftPostal_5734507="407 01";
+var ftTimeZone_5734507="+800";
+var ftMobileCarrier_5734507="";
+var ftImp5734507 = {};
+ftImp5734507.privacy = "x";
+ftImp5734507.guidAge = "92";
+ftImp5734507.impID = "0403D191-CB63-0D8C-DB4E-19D676264FEF";
+ftImp5734507.duid = "FT:5699A48D7EA6F1";
+
+ftImp5734507.ft_tpplid = "";
+ftImp5734507.ft_c = {};
+ftImp5734507.gdpr = "";
+ftImp5734507.gdpr_consent = "";
+ftImp5734507.gdpr_pd = "";
+ftImp5734507.oob_consent = "";
+ftImp5734507.gdprStoredConsent = "";
+ftImp5734507.us_privacy = "!!US_PRIVACY!";
+ftImp5734507.gpc = "";
+
+ftImp5734507.jsAppend = "1";
+(function(){
+    var tag = document.getElementById('ft_servedby_5734507') || (function(s){
+    	return s[s.length-1];
+    }(document.getElementsByTagName('script'))),
+           js = document.createElement('script');
+    js.src =
+"https://cdn.flashtalking.com/xre/573/5734507/4509095/js/j-5734507-4509095.js";
+    js.id = "ftscript_m5734507";
+    tag.parentNode.insertBefore(js, tag);
+}());

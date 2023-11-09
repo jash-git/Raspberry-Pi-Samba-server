@@ -1,0 +1,310 @@
+/******/ "use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ./node_modules/@mediamonks/display-temple/util/enableRecorder.js
+/**
+ * Enable the ad to communicate with the display-ads-recorder, allowing the ad to be converted to other formats like mp4 and animated gif.
+ *
+ * @param {String} animation GSAP Timeline.
+ * @param {String} config richmedia config.
+ */
+
+function enableAdsRecorder(animation, config) {
+  const animationConfig = {
+    duration: animation.duration(),
+    width: config.settings.size.width,
+    height: config.settings.size.height,
+  };
+
+  window.postMessage({
+    name: 'animation-ready',
+    ...animationConfig,
+  });
+
+  window.addEventListener('message', event => {
+    const { data } = event;
+
+    if (data.name === 'request-goto-frame') {
+      animation.pause(data.frame / 1000, false);
+      window.postMessage({
+        name: 'current-frame',
+        frame: data.frame,
+      });
+    }
+  });
+}
+
+;// CONCATENATED MODULE: ./src/shared/script/main.js
+
+
+
+async function politeLoadImages(element) {
+  const imageList = Array.from(element.querySelectorAll('img[data-src]'));
+  const imageUrlList = imageList.map((img) => img.getAttribute('data-src'));
+
+  const result = await Promise.all(
+    imageUrlList.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = document.createElement('img');
+        img.onload = function () {
+          resolve(this);
+        };
+        img.onerror = reject;
+        img.dataset.src = src;
+        img.src = src;
+      });
+    }),
+  );
+
+  result.forEach((img, index) => {
+    imageList[index].src = img.src;
+  });
+}
+
+function createAnimation(obj, config) {
+  const tl = gsap.timeline(obj);
+  // console.log(config);
+
+  const coords = config.content.handPointerCoords;
+  const dimensions = `${config.settings.size.width}x${config.settings.size.height}`;
+  const textIntro = dimensions === '728x90'|| dimensions === '300x50' || dimensions === '320x50' || dimensions === '320x100'? {y: '150%'} : {x: '-200%'};
+  const side = dimensions === '728x90' || dimensions === '300x50' ||  dimensions === '320x50' ||  dimensions === '970x250'? {x: '150%'} : {x: '-150%'};
+  const kvIntro = dimensions === '1200x627'? {y: '10%',x:'10%'} : {x: '10%'};
+  tl.to('.content', {duration: 0.5, opacity: 1, onComplete:change});
+  
+  tl.addLabel('frame1');
+  
+  tl.from(['.mainCopy_img',".subCopy_img"], {duration: 0.8, ...textIntro, ease: 'cubic.out',stagger: 0.8, opacity:1}, 'frame1');
+
+ if(dimensions==='300x600'){
+ 
+  tl.from(['#Yellow','#Pink2'], {duration:2.2, x:'100%', x: -180, y:-20,scale: 3, ease: 'cubic.out'}, '<')
+  tl.from(['#Blue','#Yellow2'], {duration:2, y:'100%', x: 250, y:-20,scale: 4, ease: 'cubic.out'}, '<0.4')
+  tl.from(['#Pink','#Blue2'], {duration:2, x:'100%', x: -280, y:20,scale: 5, ease: 'cubic.out'}, '<0.2')
+  tl.from(['#Red'], {duration:2, y:'100%', x: 180, y:20,scale: 5, ease: 'cubic.out'}, '<0.3')
+  tl.from('.pointer', {duration: 1, ease: 'cubic.out', x: -200, y: 100, opacity: 1}, '<')
+
+
+
+ }else if(dimensions === '300x250'){
+
+  tl.from(['#Yellow'], {duration:2.2, x:'100%', x: -250, y:-20,scale: 3, ease: 'cubic.out'}, '<')
+  tl.from(['#Blue'], {duration:2, y:'100%', x: 250, y:-20,scale: 4, ease: 'cubic.out'}, '<0.4')
+  tl.from(['#Pink','#Blue2','#Blue3'], {duration:2, x:'100%', x: -280, y:20,scale: 5, ease: 'cubic.out'}, '<0.2')
+  tl.from(['#Red','#Red2'], {duration:2, y:'100%', x: 180, y:20,scale: 5, ease: 'cubic.out'}, '<0.3')
+  tl.from('.pointer', {duration: 1, ease: 'cubic.out', x: -100, y: 130, opacity: 1}, '<')
+
+ }
+
+
+ else if(dimensions === '160x600'){
+
+  tl.from(['#Yellow','#Pink2'], {duration:2.2, x:'100%', x: -180, y:-20,scale: 3, ease: 'cubic.out'}, '<')
+  tl.from(['#Blue', '#Blue2'], {duration:2, y:'100%', x: 250, y:-20,scale: 4, ease: 'cubic.out'}, '<0.4')
+  tl.from(['#Pink'], {duration:2, x:'100%', x: -280, y:20,scale: 5, ease: 'cubic.out'}, '<0.2')
+  tl.from(['#Red','#Red2'], {duration:2, y:'100%', x: 180, y:20,scale: 5, ease: 'cubic.out'}, '<0.3')
+  tl.from('.pointer', {duration: 1, ease: 'cubic.out', x: -200, y: 100, opacity: 1}, '<')
+
+ }
+ else if(dimensions === '728x90'){
+
+  tl.from(['#Yellow'], {duration:2.2, x:'100%', x: -100, y:-20,scale: 3, ease: 'cubic.out'}, '<')
+  tl.from(['#Blue','#Red'], {duration:2, y:'100%', x: 50, y:-100,scale: 4, ease: 'cubic.out'}, '<0.4')
+  tl.from(['#Yellow2'], {duration:2, y:'100%', x: 50, y:150,scale: 4, ease: 'cubic.out'}, '<')
+  tl.from(['#Pink'], {duration:2, x:'100%', x: -100, y:-50,scale: 5, ease: 'cubic.out'}, '<0.2')
+  tl.from([,'#Red2'], {duration:2, y:'100%', x: 100, y:120,scale: 5, ease: 'cubic.out'}, '<0.3')
+  tl.from('.pointer', {duration: 1, ease: 'cubic.out', x: -100, y: 130, opacity: 1}, '<')
+
+ }
+
+
+
+
+ tl.from(['.cta_img'], {duration: 0.8, opacity: 0, ease: 'cubic.out'}, '>')
+ tl.set(['.mainExit'], {display:"block"}, '<')
+  
+
+
+
+
+
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+
+
+  return tl;
+}
+
+
+
+function createCtaAnimation(obj,config) {
+  const cta1 = config.content.assetImageCopy.cta;
+  const cta2 = config.content.assetImageCopy.ctaHover;
+
+  const tl = gsap.timeline(obj);
+
+  tl.set('.cta_img', {attr: {src:cta2}})
+  // tl.to('.cta_copy', {duration: 0.1, color: '#0075eb'}, '<');
+  return tl;
+}
+
+
+
+
+
+
+function change(obj, config){
+  const tl = gsap.timeline(obj);
+
+  
+   
+  tl.set(['.cls-ruler'], {width:0, height:0, opacity: 1})
+  .set([".blueSquare"], {scale:0, opacity: 1})
+  .set(["#L"], {y:0, opacity: 0})
+
+  .to([".greenheart"], {bottom:0, opacity: 1})
+
+.from('.rightCCMask', {duration:1.5,width:0, height:0, opacity: 1}, '<')
+
+  .to(['#A',"#S","#L","#E"], { opacity: 1}, '<')
+
+
+ 
+  .from('.blueSquare', {duration: 2, scale: 0 , xPercent: -50,yPercent: -50, ease: "back.out"},'<')
+
+  .to([".greenheart"], {bottom:0,duration: 1.2, ease: 'cubic.inOut',opacity: 1},"<")
+ 
+ 
+  .from(['#A'], {duration: 0.6,rotationY: 180,repeat:8,ease: 'power2.inOut',yoyo: true}, '>1')
+  .from( '#L' , { duration: 1.2, y: 5,repeat:4, transformOrigin:"0% 50%", force3D:true, rotationZ:0.01, yoyo:true,ease: "bounce.Inout" } ,"<")
+.from( '#E' , { duration: 1.4,scaleX:0.8,  transformOrigin:"0% 50%",repeat:4, force3D:true, rotationZ:0.01, yoyo:true,ease: 'cubic.inOut' } ,"<")
+.from( '#S' , { duration: 1.2,scaleX:1.15, transformOrigin:"100% 0%",repeat:4, force3D:true, rotationZ:0.01, yoyo:true,ease: 'cubic.inOut' } ,"<")
+
+
+.to('.pointer', {duration: 0.5, scale:0.7,x:-3, ease: 'cubic.out'}, '<')
+.to('.pointer', {duration: 0.8,scale:1,x:0,ease: 'cubic.out'}, '>')
+
+  .to('.cls-s', {duration:0.1,fill:"#e93224"}, '<')
+  .to('.cls-a', {duration:0.1, fill:"#59c279"}, '<')
+  .to('.cls-L', {duration:0.1,fill:"#f19de0"}, '<')
+  .to('.cls-E', {duration:0.1,fill:"#f9db60"}, '<')
+    .to(['.cloud_y'], {duration:0.1,fill:"#ffffff"}, '<')
+    .to(['.blue_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+    .to(['.red_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+    .to(['.pink_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+
+
+   
+  .to('.cls-a', {duration:0.1,fill:"#ffff"}, '>1')
+  .to('.cls-L', {duration:0.1,fill:"#ffff"}, '<')
+  .to('.cls-s', {duration:0.1,fill:"#ffff"}, '<')
+  .to('.cls-E', {duration:0.1,fill:"#ffff"}, '<')
+  .to(['.cloud_y'], {duration:0.1,fill:"#e93224"}, '<')
+  .to(['.blue_cloud'], {duration:0.1,fill:"#59c279" }, '<')
+  .to(['.red_cloud'], {duration:0.1,fill:"#f19de0" }, '<')
+  .to(['.pink_cloud'], {duration:0.1,fill:"#f9db60" }, '<')
+
+
+
+
+  .to('.pointer', {duration: 0.5, scale:0.7, x:-3,ease: 'cubic.out'}, '>0.2')
+  .to('.pointer', {duration: 0.8,scale:1, x:0,ease: 'cubic.out'}, '>')
+  .to('.cls-a', {duration:0.1,fill:"#e93224"}, '<')
+  .to('.cls-s', {duration:0.1, fill:"#59c279"}, '<')
+  .to('.cls-E', {duration:0.1,fill:"#f19de0"}, '<')
+  .to('.cls-L', {duration:0.1,fill:"#f9db60"}, '<')
+  .to(['.cloud_y'], {duration:0.1,fill:"#ffffff"}, '<')
+  .to(['.blue_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+  .to(['.pink_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+  .to(['.red_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+
+  .to('.cls-a', {duration:0.1,fill:"#ffff"}, '>1')
+  .to('.cls-L', {duration:0.1,fill:"#ffff"}, '<')
+  .to('.cls-s', {duration:0.1,fill:"#ffff"}, '<')
+  .to('.cls-E', {duration:0.1,fill:"#ffff"}, '<')
+  .to(['.blue_cloud'], {duration:0.1,fill:"#e93224"}, '<')
+    .to(['.cloud_y'], {duration:0.1,fill:"#59c279" }, '<')
+    .to(['.pink_cloud'], {duration:0.1,fill:"#006eff" }, '<')
+    .to(['.red_cloud'], {duration:0.1,fill:"#f9db60" }, '<')
+
+
+
+
+    .to('.pointer', {duration: 0.5, scale:0.7,x:-3, ease: 'cubic.out'}, '>0.2')
+    .to('.pointer', {duration: 0.8,scale:1, x:0,ease: 'cubic.out'}, '>')
+  .to('.cls-E', {duration:0.1,fill:"#e93224"}, '<')
+  .to('.cls-L', {duration:0.1, fill:"#59c279"}, '<')
+  .to('.cls-s', {duration:0.1,fill:"#f19de0"}, '<')
+  .to('.cls-a', {duration:0.1,fill:"#f9db60"}, '<')
+  .to(['.cloud_y'], {duration:0.1,fill:"#ffffff"}, '<')
+  .to(['.blue_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+  .to(['.red_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+  .to(['.pink_cloud'], {duration:0.1,fill:"#ffffff" }, '<')
+
+
+  .to('.cls-a', {duration:0.1,fill:"#ffff"}, '>1')
+  .to('.cls-L', {duration:0.1,fill:"#ffff"}, '<')
+  .to('.cls-s', {duration:0.1,fill:"#ffff"}, '<')
+  .to('.cls-E', {duration:0.1,fill:"#ffff"}, '<')
+  .to(['.pink_cloud'], {duration:0.1,fill:"#ff8de9"}, '<')
+  .to(['.red_cloud'], {duration:0.1,fill:"#e93224" }, '<')
+  .to(['.cloud_y'], {duration:0.1,fill:"#ffd53a" }, '<')
+  .to(['.blue_cloud'], {duration:0.1,fill:"#006eff" }, '<')
+
+
+   }
+
+async function flashtalkingApi() {
+  console.log('checking')
+  if (!myFT.hasLoaded) {
+    console.log('not loaded')
+    await new Promise((resolve) => {
+      myFT.on('ready', resolve);
+    });
+  }
+  console.log('done')
+  return;
+}
+
+(async () => {
+  const config = {"settings":{"size":{"width":160,"height":600}},"content":{"css":"style.css","clickTag":"https://www.google.com","bgcolor":"#ffffff","handPointerCoords":[{"x":0,"y":0},{"x":0,"y":37},{"x":0,"y":74}],"customCss":"custom.css","logo":"logo.png","green_heart":"Green_heart.svg","blueSquare":"blue_sqaure.svg","pointer":"arrow.svg","assetImage3":{},"assetImageCopy":{"mainCopy":"mainCopy.png","subCopy":"subCopy.png","ctaHover":"ctaHover.png","cta":"cta.png"},"language":"en","mainCopy":"Students <br> save over <br> 65% on <br> Creative <br> Cloud.","subCopy":"Sale ends 11.11."}};
+
+  // create timelines
+  const timeline = createAnimation({paused: true}, config);
+  const ctaTimeline = createCtaAnimation({paused: true}, config);
+
+  // create exit / rollover events
+  const mainExit = document.querySelector('.mainExit');
+  mainExit.addEventListener('click', () => {
+    // window.open(window.clickTag,'_blank');
+    myFT.clickTag(1);
+    timeline.progress(1);
+  });
+
+  mainExit.addEventListener('mouseover', () => {
+    ctaTimeline.play();
+  });
+
+  mainExit.addEventListener('mouseout', () => {
+    ctaTimeline.reverse();
+  });
+
+  // await loading images and others
+  await politeLoadImages(document.querySelector('.banner'));
+  await document.fonts.ready;
+  // await flashtalkingApi();
+
+  enableAdsRecorder(timeline, config);
+
+  //play banner ad animation
+  timeline.play();
+})();
+

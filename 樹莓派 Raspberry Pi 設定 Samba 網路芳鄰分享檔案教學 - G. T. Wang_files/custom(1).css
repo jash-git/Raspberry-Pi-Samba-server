@@ -1,0 +1,456 @@
+.logo {
+  position: absolute;
+  top: 0px;
+    left: 0px;
+    width: 728px;
+    height: 90px;
+}
+
+
+
+.title_container {
+  position: absolute;
+
+  top: 17px;
+  left: 152px;
+  width: 50%;
+  height: 68%;
+
+  color: #ffffff;
+  /* background-color: #0075eb; */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; /* Align content to the top vertically */
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; /* Align content to the right horizontally */
+}
+
+
+
+.mainCopy,
+.mainCopy2 {
+  position: absolute;
+  font-size: 29.1px;
+  line-height: 25.74px;
+  text-align: left;
+  margin-top: 0; /* Remove top margin to start from the top */
+  margin-left: 0px; /* Adjust as needed */
+}
+
+
+
+.subCopy {
+  position: absolute;
+  font-size: 16px;
+text-align: left;
+    margin-top: 56px;
+  margin-left: 0px; 
+
+}
+
+
+
+.cta {
+  position: absolute;
+  top: 27px;
+  left: 488px;
+  width: 87px;
+  height: 33px;
+  overflow: hidden;
+  will-change: transform;
+    /* background-color: #0075eb; */
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+}
+
+
+
+.cta.my {
+    top: 132px;
+  }
+
+
+
+.cta_copy {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 90%;
+  padding: 5px 5px;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 13px;
+font-weight: bold;
+  color: #ffffff;
+}
+
+
+
+.cls-ruler {
+  fill: #006eff;
+  stroke-width: 0px;
+  opacity: 0;
+}
+
+
+
+#Layer_svg{
+  position: absolute;
+  width: 73px;
+  
+}
+
+
+
+.rightCCMask {
+  position: absolute;
+
+  left: 33px;
+  top: 1px;
+  overflow: hidden;
+  height: 90px;
+  width: 79px;
+  /* background-color: brown; */
+}
+
+
+
+.greenHeartMask {
+
+  position: absolute;
+  width: 46px;
+  left: 84px;
+  top: 71px;
+  overflow: hidden;
+  height: 14px;
+
+  /* background-color: brown; */
+}
+
+
+
+.greenheart{
+  position: absolute;
+bottom:15px;
+  width:20px;
+
+
+}
+
+
+
+.blueSquare{
+  position: absolute;
+  bottom: 4px;
+  width: 22px;
+  left: 83px;
+  opacity: 0;
+}
+
+
+
+.cls-a2, .cls-a {
+  stroke-width: 0px;
+}
+
+
+
+.cls-a {
+  fill: #fff;
+}
+
+
+
+#A{
+  position: absolute;
+  width: 37px;
+  top: 8px;
+  left: 68px;
+  opacity: 0;
+  
+}
+
+
+
+/* S alphabet */
+
+
+
+#S{
+
+  position: absolute;
+  width: 28px;
+  top: 8px;
+  left: 42px;
+  opacity: 0;
+  
+}
+
+
+
+.cls-s2, .cls-s,.cls-s_square, .cls-s_blue {
+  stroke-width: 0px;
+}
+
+
+
+.cls-s,.cls-s_square {
+  fill: #fff;
+}
+
+
+
+.cls-s_blue {
+  fill: #006eff;
+}
+
+
+
+/* L Alphabet */
+
+
+
+#L{
+
+
+  position: absolute;
+  width: 36px;
+  top: 44px;
+  left: 43px;
+  opacity: 0;
+  
+}
+
+
+
+.cls-L, .cls-L2 {
+  stroke-width: 0px;
+}
+
+
+
+.cls-L {
+  fill: #fff;
+}
+
+
+
+/* E Alphabet */
+
+
+
+#E{
+
+
+  position: absolute;
+  width: 46px;
+  top: 43px;
+  left: 60px;
+  opacity: 0;
+  
+}
+
+
+
+.cls-E, .cls-E2 {
+  stroke-width: 0px;
+}
+
+
+
+.cls-E {
+  fill: #fff;
+}
+
+
+
+/* yelloow cloud */
+
+
+
+#Pink{
+
+  position: absolute;
+  width: 18px;
+  top: 12px;
+  left: 40px;
+
+  z-index: 10;
+  opacity: 1;
+}
+
+
+
+#Pink2{
+
+  position: absolute;
+  width: 50px;
+  top: 277px;
+  left: -18px;
+  z-index: 10;
+  opacity: 0;
+}
+
+
+
+#Red{
+
+  position: absolute;
+  width: 22px;
+  top: 22px;
+  left: 113px;
+  z-index: 10;
+  opacity: 1;
+}
+
+
+
+#Red2{
+
+  position: absolute;
+  width: 18px;
+  top: 54px;
+  left: 99px;
+  z-index: 10;
+  opacity: 1;
+}
+
+
+
+#Blue{
+
+  position: absolute;
+  width: 28px;
+  top: 2px;
+  left: 87px;
+  z-index: 10;
+  opacity: 1;
+}
+
+
+
+#Blue2{
+
+  position: absolute;
+  width: 43px;
+  top: 232px;
+  left: 126px;
+
+  z-index: 10;
+  opacity: 1;
+}
+
+
+
+#Yellow{
+position: absolute;
+width: 23px;
+top: 60px;
+left: 26px;
+  opacity: 1;
+}
+
+
+
+#Yellow2{
+  position: absolute;
+  width: 29px;
+  top: 81px;
+  left: 117px;
+    opacity: 1;
+  }
+
+
+
+.pink_cloud, .pink_cloud2 {
+  stroke-width: 0px;
+}
+
+
+
+.pink_cloud {
+  fill: #ff8de9;
+}
+
+
+
+/* Red cloud */
+
+
+
+.red_cloud, .red_cloud2 {
+  stroke-width: 0px;
+}
+
+
+
+.red_cloud {
+  fill: red;
+}
+
+
+
+/* 
+Blue cloud */
+
+
+
+.blue_cloud, .blue_cloud2 {
+  stroke-width: 0px;
+}
+
+
+
+.blue_cloud {
+  fill: #006eff;
+}
+
+
+
+/* Yellow Cloud */
+
+
+
+.cloud_y {
+  fill: #ffd53a;
+}
+
+
+
+.cloud_y, .cloud_y2 {
+  stroke-width: 0px;
+}
+
+
+
+.pointer{
+position: absolute;
+width: 6px;
+top: 27px;
+left: 58px;
+    opacity: 1;
+}
+
+
+
+.background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+
+
+.ctaHover_img{
+  opacity: 0;
+}
